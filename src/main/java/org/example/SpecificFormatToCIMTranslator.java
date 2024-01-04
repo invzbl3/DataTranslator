@@ -59,17 +59,26 @@ public class SpecificFormatToCIMTranslator {
                 "</CIM>";
     }
 
-    private static String translateSpecificFormatToProperty(String specificFormatData) {
+    /*private static String translateSpecificFormatToProperty(String specificFormatData) {
         // Your actual logic to translate specificFormatData to CIM property
         // Replace this with the actual translation logic
 
         // Utilize the specificFormatData parameter in the translation logic
         return "<Property name=\"" + specificFormatData + "\">propertyValue</Property>";
+    }*/
+
+    private static String translateSpecificFormatToProperty(String specificFormatData) {
+        // Split the specificFormatData into key and value
+        String[] parts = specificFormatData.split(":");
+
+        // Use the key and value in the translation logic
+        return "<Property name=\"" + parts[0] + "\">" + parts[1] + "</Property>";
     }
 
     public static void main(String[] args) {
         // Example usage
-        String specificFormatData = "Some data in specific format";
+        //String specificFormatData = "Some data in specific format";
+        String specificFormatData = "deviceName:Device123";
         String cimXml = translateToCIM(specificFormatData);
 
         // Output the translated CIM XML
