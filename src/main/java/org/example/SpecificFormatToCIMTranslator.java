@@ -49,13 +49,20 @@ public class SpecificFormatToCIMTranslator {
         // Parse specific format data and convert it to CIM XML
         // Replace this with your actual logic based on the specific format
 
-        // Sample translation logic
+        // Sample translation logic using specificFormatData
+        String translatedProperty = translateSpecificFormatToProperty(specificFormatData);
 
         return "<CIM>\n" +
                 "    <Entity>\n" +
-                "        <Property name=\"propertyName\">propertyValue</Property>\n" +
+                "        " + translatedProperty + "\n" +
                 "    </Entity>\n" +
                 "</CIM>";
+    }
+
+    private static String translateSpecificFormatToProperty(String specificFormatData) {
+        // Your actual logic to translate specificFormatData to CIM property
+        // Replace this with the actual translation logic
+        return "<Property name=\"propertyName\">propertyValue</Property>";
     }
 
     public static void main(String[] args) {
