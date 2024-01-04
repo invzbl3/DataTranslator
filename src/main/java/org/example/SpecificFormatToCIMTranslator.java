@@ -62,7 +62,9 @@ public class SpecificFormatToCIMTranslator {
     private static String translateSpecificFormatToProperty(String specificFormatData) {
         // Your actual logic to translate specificFormatData to CIM property
         // Replace this with the actual translation logic
-        return "<Property name=\"propertyName\">propertyValue</Property>";
+
+        // Utilize the specificFormatData parameter in the translation logic
+        return "<Property name=\"" + specificFormatData + "\">propertyValue</Property>";
     }
 
     public static void main(String[] args) {
