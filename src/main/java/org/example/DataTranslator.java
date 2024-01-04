@@ -2,6 +2,7 @@ package org.example;
 
 import com.example.YourSpecificFormatParser;
 import com.example.CIMModelBuilder;
+
 /**
  * Step 2: Translate country-specific data to European CIM (1.12.-15.12.2023)
  * Task:
@@ -44,7 +45,8 @@ public class DataTranslator {
         return "Your specific format data";
     }
 
-    private static CommonInformationModel mapToCIMFormat(YourSpecificDataModel specificData, CIMModelBuilder cimModelBuilder) {
+    private static CommonInformationModel mapToCIMFormat(YourSpecificDataModel specificData,
+                                                         CIMModelBuilder cimModelBuilder) {
         // Implement logic to map your specific data model to CIM
         // Use the CIMModelBuilder to create CIM objects and populate them with data
         return cimModelBuilder.buildCIMModel(specificData);
