@@ -62,7 +62,6 @@ public class SpecificFormatToCIMTranslator {
 
     public static void main(String[] args) {
         // Example usage
-        //String specificFormatData = "Some data in specific format";
         String specificFormatData = "deviceName:Device123";
         String cimXml = translateToCIM(specificFormatData);
 
