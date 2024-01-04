@@ -7,7 +7,7 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App.
  */
-public class DataTranslatorTest
+public class SpecificFormatToCIMTranslatorTest
     extends TestCase
 {
     /**
@@ -15,7 +15,7 @@ public class DataTranslatorTest
      *
      * @param testName name of the test case
      */
-    public DataTranslatorTest(String testName )
+    public SpecificFormatToCIMTranslatorTest(String testName )
     {
         super( testName );
     }
@@ -25,7 +25,7 @@ public class DataTranslatorTest
      */
     public static Test suite()
     {
-        return new TestSuite( DataTranslatorTest.class );
+        return new TestSuite( SpecificFormatToCIMTranslatorTest.class );
     }
 
     /**
