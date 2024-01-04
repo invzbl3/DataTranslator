@@ -1,8 +1,5 @@
 package org.example;
 
-/*import com.example.YourSpecificFormatParser;
-import com.example.CIMModelBuilder;*/
-
 /**
  * Step 2: Translate country-specific data to European CIM (1.12.-15.12.2023)
  * Task:
@@ -48,19 +45,17 @@ public class SpecificFormatToCIMTranslator {
      * format and the CIM. Additionally, error handling and validation should be added based on your specific
      * use case.
      */
-
     public static String translateToCIM(String specificFormatData) {
         // Parse specific format data and convert it to CIM XML
         // Replace this with your actual logic based on the specific format
 
         // Sample translation logic
-        String cimXml = "<CIM>\n" +
+
+        return "<CIM>\n" +
                 "    <Entity>\n" +
                 "        <Property name=\"propertyName\">propertyValue</Property>\n" +
                 "    </Entity>\n" +
                 "</CIM>";
-
-        return cimXml;
     }
 
     public static void main(String[] args) {
@@ -71,38 +66,4 @@ public class SpecificFormatToCIMTranslator {
         // Output the translated CIM XML
         System.out.println("Translated CIM XML:\n" + cimXml);
     }
-
-    /*public static void main(String[] args) {
-        // Replace these with your actual data
-        String specificFormatData = readSpecificFormatDataFromFileOrSource();
-
-        // Parse data from your specific format
-        YourSpecificFormatParser parser = new YourSpecificFormatParser();
-        YourSpecificDataModel specificData = parser.parse(specificFormatData);
-
-        // Map the data to CIM format
-        CIMModelBuilder cimModelBuilder = new CIMModelBuilder();
-        CommonInformationModel cimModel = mapToCIMFormat(specificData, cimModelBuilder);
-
-        // Further actions, such as sending CIM data to another system or storing it
-        performAdditionalActions(cimModel);
-    }
-
-    private static String readSpecificFormatDataFromFileOrSource() {
-        // Implement logic to read data from your specific format (e.g., file, API, database)
-        return "Your specific format data";
-    }
-
-    private static CommonInformationModel mapToCIMFormat(YourSpecificDataModel specificData,
-                                                         CIMModelBuilder cimModelBuilder) {
-        // Implement logic to map your specific data model to CIM
-        // Use the CIMModelBuilder to create CIM objects and populate them with data
-        return cimModelBuilder.buildCIMModel(specificData);
-    }
-
-    private static void performAdditionalActions(CommonInformationModel cimModel) {
-        // Implement logic for additional actions with the CIM model
-        // For example, sending the CIM data to another system or storing it
-        System.out.println("Translated CIM data: " + cimModel.toString());
-    }*/
 }
