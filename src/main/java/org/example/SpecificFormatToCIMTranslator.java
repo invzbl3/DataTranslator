@@ -78,6 +78,8 @@ public class SpecificFormatToCIMTranslator {
     public static void main(String[] args) {
         try {
             // Get the absolute path to the XML file in the root of the project
+            // System.getProperty("user.dir") to dynamically obtain the current working directory,
+            // and append the file name (daily_consumption.xml) to get the absolute path.
             String filePath = System.getProperty("user.dir") + File.separator + "daily_consumption.xml";
             File xmlFile = new File(filePath);
 
