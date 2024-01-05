@@ -50,10 +50,7 @@ public class SpecificFormatToCIMTranslator {
      * use case.
      */
     public static String translateToCIM(String specificFormatData) {
-        // Parse specific format data and convert it to CIM XML
         // Replace this with your actual logic based on the specific format
-
-        // Sample translation logic using specificFormatData
         String translatedProperty = translateSpecificFormatToProperty(specificFormatData);
 
         return "<CIM>\n" +
@@ -73,28 +70,39 @@ public class SpecificFormatToCIMTranslator {
     /**
      *
      * @param args
-     * The SpecificFormatToCIMTranslator class that
-     * reads the data from the XML file and performs the translation:
+     * The SpecificFormatToCIMTranslator class that reads the data from the XML file and performs the translation.
+     * <p>
+     * This code assumes that each <consumos> element in the XML file represents a specific data entry that
+     * needs to be translated to CIM XML. Adjust the code according to your specific requirements and XML structure.
      */
     public static void main(String[] args) {
-        // Example usage with daily_consumption.xml
         try {
-            File xmlFile = new File("daily_consumption.xml");
+            // Load XML document from file
+            File xmlFile = new File("path/to/daily_consumption.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(xmlFile);
             doc.getDocumentElement().normalize();
 
-            NodeList nodeList = doc.getElementsByTagName("consumos");
+            // Extract and process data from XML
+            NodeList consumosList = doc.getElementsByTagName("consumos");
+            for (int i = 0; i < consumosList.getLength(); i++) {
+                Element consumosElement = (Element) consumosList.item(i);
 
-            for (int temp = 0; temp < nodeList.getLength(); temp++) {
-                Element element = (Element) nodeList.item(temp);
-                String specificFormatData = element.getElementsByTagName("Hora").item(0).getTextContent() + ":" +
-                        element.getElementsByTagName("Consumo_kWh").item(0).getTextContent();
+                // Extract relevant data from the XML structure
+                String cups = consumosElement.getElementsByTagName("CUPS").item(0).getTextContent();
+                String fecha = consumosElement.getElementsByTagName("Fecha").item(0).getTextContent();
+                String hora = consumosElement.getElementsByTagName("Hora").item(0).getTextContent();
+                String consumoKWh = consumosElement.getElementsByTagName("Consumo_kWh").item(0).getTextContent();
+
+                // Format the data for translation
+                String specificFormatData = hora + ":" + consumoKWh;
+
+                // Perform the translation
                 String cimXml = translateToCIM(specificFormatData);
 
-                // Output the translated CIM XML for each entry
-                System.out.println("Translated CIM XML:\n" + cimXml);
+                // Output the translated CIM XML
+                System.out.println("Translated CIM XML for CUPS " + cups + " at " + fecha + " " + hora + ":\n" + cimXml);
             }
         } catch (Exception e) {
             logger.error("An error occurred:", e);
