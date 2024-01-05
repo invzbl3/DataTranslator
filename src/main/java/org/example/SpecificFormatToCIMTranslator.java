@@ -53,19 +53,34 @@ public class SpecificFormatToCIMTranslator {
     }
 
     private static String translateSpecificFormatToProperty(String specificFormatData) {
-        // Split the specificFormatData into key and value
+        // Your actual logic to translate specificFormatData to CIM property
+        // Replace this with the actual translation logic
         String[] parts = specificFormatData.split(":");
-
-        // Use the key and value in the translation logic
         return "<Property name=\"" + parts[0] + "\">" + parts[1] + "</Property>";
     }
 
     public static void main(String[] args) {
-        // Example usage
-        String specificFormatData = "deviceName:Device123";
-        String cimXml = translateToCIM(specificFormatData);
+        // Example usage with daily_consumption.xml
+        try {
+            File xmlFile = new File("daily_consumption.xml");
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(xmlFile);
+            doc.getDocumentElement().normalize();
 
-        // Output the translated CIM XML
-        System.out.println("Translated CIM XML:\n" + cimXml);
+            NodeList nodeList = doc.getElementsByTagName("consumos");
+
+            for (int temp = 0; temp < nodeList.getLength(); temp++) {
+                Element element = (Element) nodeList.item(temp);
+                String specificFormatData = element.getElementsByTagName("Hora").item(0).getTextContent() + ":" +
+                        element.getElementsByTagName("Consumo_kWh").item(0).getTextContent();
+                String cimXml = translateToCIM(specificFormatData);
+
+                // Output the translated CIM XML for each entry
+                System.out.println("Translated CIM XML:\n" + cimXml);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
