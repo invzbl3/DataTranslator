@@ -1,5 +1,13 @@
 package org.example;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.File;
+
 /**
  * Step 2: Translate country-specific data to European CIM (1.12.-15.12.2023)
  * Task:
