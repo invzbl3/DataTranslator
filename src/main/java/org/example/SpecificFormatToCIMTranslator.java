@@ -77,8 +77,11 @@ public class SpecificFormatToCIMTranslator {
      */
     public static void main(String[] args) {
         try {
+            // Get the absolute path to the XML file in the root of the project
+            String filePath = System.getProperty("user.dir") + File.separator + "daily_consumption.xml";
+            File xmlFile = new File(filePath);
+
             // Load XML document from file
-            File xmlFile = new File("path/to/daily_consumption.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(xmlFile);
