@@ -6,6 +6,8 @@ import org.w3c.dom.NodeList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+import java.util.logging.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Step 2: Translate country-specific data to European CIM (1.12.-15.12.2023)
@@ -26,6 +28,8 @@ import java.io.File;
  *
  */
 public class SpecificFormatToCIMTranslator {
+
+    private static final Logger logger = LoggerFactory.getLogger(SpecificFormatToCIMTranslator.class);
 
     /**
      *
@@ -87,7 +91,7 @@ public class SpecificFormatToCIMTranslator {
                 System.out.println("Translated CIM XML:\n" + cimXml);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("An error occurred:", e);
         }
     }
 }
