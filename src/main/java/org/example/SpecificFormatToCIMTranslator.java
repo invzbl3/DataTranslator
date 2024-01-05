@@ -70,6 +70,12 @@ public class SpecificFormatToCIMTranslator {
         return "<Property name=\"" + parts[0] + "\">" + parts[1] + "</Property>";
     }
 
+    /**
+     *
+     * @param args
+     * The SpecificFormatToCIMTranslator class that
+     * reads the data from the XML file and performs the translation:
+     */
     public static void main(String[] args) {
         // Example usage with daily_consumption.xml
         try {
