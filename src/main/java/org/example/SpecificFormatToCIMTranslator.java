@@ -74,6 +74,15 @@ public class SpecificFormatToCIMTranslator {
      * <p>
      * This code assumes that each <consumos> element in the XML file represents a specific data entry that
      * needs to be translated to CIM XML. Adjust the code according to your specific requirements and XML structure.
+     *
+     *
+     *
+     * In the context of European CIM, CIM stands for "Common Information Model." The Common Information Model is
+     * a standard that defines how managed elements in an IT environment are represented as a common set of objects
+     * and relationships between them. It is often used in the field of information technology and systems management
+     * to ensure interoperability and consistency in the representation of information across different systems and applications.
+     * In the European context,
+     * CIM may be applied to various domains, including energy, transportation, and manufacturing, among others.
      */
     public static void main(String[] args) {
         try {
